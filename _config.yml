@@ -3,10 +3,10 @@
 # Setup
 title:               FEniCS
 tagline:             'Finite Element, Computer Sofware'
-logo:		     /assets/img/fenics_logo2.png
+logo:		     ./assets/img/fenics_logo.png
 description:         'Ed is a Jekyll theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
 url:                 'http://minicomp.github.io'
-baseurl:             '/ed'
+baseurl:             '/fenics_workshop'
 
 # About/contact
 author:
