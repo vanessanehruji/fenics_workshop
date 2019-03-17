@@ -5,7 +5,7 @@ title:               FEniCS
 tagline:             'Finite Element, Computer Sofware'
 logo:		     /assets/img/fenics_logo2.png
 description:         'A workshop for FEniCS 2018.1.0'
-url:                 'http://vanessanehruji.github.io/fenics_workshop'
+url:                 'https://vanessanehruji.github.io/fenics_workshop'
 baseurl:             '/fenics_workshop'
 
 # About/contact
