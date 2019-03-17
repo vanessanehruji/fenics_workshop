@@ -107,7 +107,7 @@ def boundary(x, on_boundary):
 bc = DirichletBC(V, Constant(1.0), boundary)
 ```
 
-You can apply mutliple Dirichlet conditions by creating a list of DirichletBC and passing this to the solve function.
+You can apply multiple Dirichlet conditions by creating a list of DirichletBC and passing this to the solve function.
 
 For example, if we wanted to the RHS boundary to have a value of 1 only when $$y < 0.5$$ and a value of 2 when $$y > 0.5$$, then,
 
@@ -127,6 +127,33 @@ solve(a == L, u, bcs)
 
 ## NEUMANN BC
 
+The Neumann boundary condition forces the derivative of the unknown function to a speicific value at the boundary. This is also called the 'natural' BC since it automatically appears in the weak formulation.
+
+For example, the strong form of the Poisson equation is
+
+$$
+\begin{equation}
+  -\nabla^2 u = f \qquad \text{on}\ \Omega
+\end{equation}
+$$
+
+The weak formulation from this gives
+
+$$
+\begin{equation}
+  \int_{\Omega} \nabla u \cdot \nabla v \text{d}\Omega = \int_{\Omega} f v \text{d}\Omega + \int_{\Gamma_{N}} \frac{\partial u}{\partial n} v \text{d} \Gamma
+\end{equation}
+$$
+
+where the flux is $$g = \frac{\partial u}{\partial n}$$
+
+$$
+\begin{equation}
+  \int_{\Omega} \nabla u \cdot \nabla v \text{d}\Omega = \int_{\Omega} f v \text{d}\Omega + \int_{\Gamma_{N}} g v \text{d} \Gamma
+\end{equation}
+$$
+
+In the previous examples, we have always set $$g = 0$$, (i.e. a Neumann condition of 0) so we did not include the second term on the RHS of the equation above.
 
 ---
 
