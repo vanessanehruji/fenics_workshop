@@ -3,7 +3,7 @@
 # Setup
 title:               FEniCS
 tagline:             'Finite Element, Computer Sofware'
-logo:		     /assets/img/fenics_logo2.png
+logo:		     '/assets/img/fenics_logo2.png'
 description:         'A workshop for FEniCS 2018.1.0'
 url:                 'https://vanessanehruji.github.io/fenics_workshop'
 baseurl:             '/fenics_workshop'
