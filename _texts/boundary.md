@@ -87,7 +87,7 @@ pyplot.colorbar(p)
 pyplot.show();
 ```
 
-![dirichlet_all_boundaries](../../assets/img/boundary/d_all_bounds.png)
+![dirichlet_all_boundaries](../../assets/img/boundary/d_all_bounds.png){: .center-image }
 
 We could modify the BC such that only the RHS boundary is set to 1.
 
@@ -95,7 +95,7 @@ We could modify the BC such that only the RHS boundary is set to 1.
 bc = DirichletBC(V, Constant(1.0), "x[0]==1")
 ```
 
-![dirichlet_RHS](../../assets/img/boundary/d_RHS.png)
+![dirichlet_RHS](../../assets/img/boundary/d_RHS.png){: .center-image }
 
 We could pass in a Python function defining the boundary instead of C code.
 > The function <a href="https://fenicsproject.org/docs/dolfin/1.6.0/python/programmers-reference/cpp/function/near.html">near(x, x0, eps)</a> checks whether x is near x0 within a tolerance of eps and returns True or False accordingly.
@@ -124,7 +124,7 @@ bcs = [DirichletBC(V, Constant(1.0), "x[0] == 1 and x[1] < 0.5"),
 solve(a == L, u, bcs)
 ```
 
-![dirichlet_mutliple](../../assets/img/boundary/d_multiple.png)
+![dirichlet_mutliple](../../assets/img/boundary/d_multiple.png){: .center-image }
 
 ---
 
@@ -176,7 +176,7 @@ u = Function(V)
 solve(a == L, u, bc)
 ```
 
-![neumann_on_all](../../assets/img/boundary/n_all.png)
+![neumann_on_all](../../assets/img/boundary/n_all.png){: .center-image }
 
 ---
 

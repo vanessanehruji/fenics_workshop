@@ -101,7 +101,7 @@ dolfin.plot(polygon_mesh)
 
 pyplot.tight_layout();
 ```
-![mshr2Dprimitives](../../assets/img/mshr2Dprimitives.png)
+![mshr2Dprimitives](../../assets/img/mshr2Dprimitives.png){: .center-image }
 
 ---
 
@@ -120,7 +120,7 @@ As mentioned before, there are two types of operators:
 
 We will demonstrate boolean operators between a circle at $$(0, 0)$$ with radius, $$r = 0.5$$, and a rectangle from $$(0, 0)$$ to $$(1, 1)$$.
 
-![mesh2Dbool_prim](../../assets/img/mshr2Dbool_prim.png)
+![mesh2Dbool_prim](../../assets/img/mshr2Dbool_prim.png){: .center-image }
 
 In mshr, the simple operators $$(-,+,*)$$ are overloaded for boolean operations (<a href="https://bitbucket.org/fenics-project/mshr/wiki/API/CSGDifference">difference</a>, <a href="https://bitbucket.org/fenics-project/mshr/wiki/API/CSGUnion">union</a>, <a href="https://bitbucket.org/fenics-project/mshr/wiki/API/CSGIntersection">intersection</a>). This creates mshr::CSGPrimitive2d object from which a mesh can be generated.
 ```python
@@ -135,7 +135,7 @@ union_mesh = generate_mesh(union_domain, 10)
 intersect_mesh = generate_mesh(intersect_domain, 10)
 ```
 
-![mesh2Dboolean](../../assets/img/mshr2Dboolean.png)
+![mesh2Dboolean](../../assets/img/mshr2Dboolean.png){: .center-image }
 
 ---
 
@@ -143,7 +143,7 @@ intersect_mesh = generate_mesh(intersect_domain, 10)
 
 We will show geometric transformaions (scaling, rotation, translation) on a rectangle from $$(0, 0)$$ to $$(1, 1)$$. The $$*$$ operator has been overloaded to allow for scaling by a float but other transformations require the full function.
 
-![mesh2Dgeom_prim](../../assets/img/mshr2Dgeom_prim.png)
+![mesh2Dgeom_prim](../../assets/img/mshr2Dgeom_prim.png){: .center-image }
 
 ```python
 ## Apply Geometric Transformations
@@ -157,7 +157,7 @@ rect_mesh_rot = generate_mesh(rect_rot, 5)
 rect_mesh_trans = generate_mesh(rect_trans, 5)
 ```
 
-![mesh2Dgeometric](../../assets/img/mshr2Dgeometric.png)
+![mesh2Dgeometric](../../assets/img/mshr2Dgeometric.png){: .center-image }
 
 The API suggests that we can do more precise operations such as scaling or rotating about a point, but some of this functionality has only been implemented in the C code and has no Python wrapper (<a href="https://bitbucket.org/fenics-project/mshr/src/531b03a69566e94a3b9888632d5beb8070caac68/python/src/mshr.cpp?at=master&fileviewer=file-view-default">Source</a>). We can replicate this behaviour by chaining geometric transformations.
 
@@ -176,7 +176,7 @@ rect_mesh_rot = generate_mesh(rect_rot, 5)
 
 ```
 
-![mesh2Dgeom_point](../../assets/img/mshr2Dgeom_point.png)
+![mesh2Dgeom_point](../../assets/img/mshr2Dgeom_point.png){: .center-image }
 
 ---
 
@@ -245,7 +245,7 @@ plot(cylin_mesh)
 pyplot.tight_layout();
 ```
 
-![mshr3Dprimitives](../../assets/img/mshr3Dprimitives.png)
+![mshr3Dprimitives](../../assets/img/mshr3Dprimitives.png){: .center-image }
 
 ---
 
@@ -255,7 +255,7 @@ pyplot.tight_layout();
 
 We will demonstrate boolean operations on a Box from $$(0, 0, 0)$$ to $$(1, 1, 1)$$ with a Sphere at $$(0, 0, 0)$$ with a radius, $$r = 0.5$$.
 
-![mesh3Dbool_prim](../../assets/img/mshr3Dbool_prim.png)
+![mesh3Dbool_prim](../../assets/img/mshr3Dbool_prim.png){: .center-image }
 
 Like the 2D version, the boolean operations are:
 ```python
@@ -271,7 +271,7 @@ intersect_mesh = generate_mesh(intersect_domain, 10)
 Plotting these gives us the following complex meshes: 
 > NOTE: You can use %matplotlib notebook to view an interactive 3D plot in jupyter notebooks
 
-![mesh3Dboolean](../../assets/img/mshr3Dboolean.png)
+![mesh3Dboolean](../../assets/img/mshr3Dboolean.png){: .center-image }
 
 ---
 
