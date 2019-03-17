@@ -4,14 +4,14 @@
 title:               FEniCS
 tagline:             'Finite Element, Computer Sofware'
 logo:		     ./assets/img/fenics_logo.png
-description:         'Ed is a Jekyll theme designed for textual editors based on minimal computing principles, and focused on legibility and flexibility.'
-url:                 'http://minicomp.github.io'
+description:         'A workshop for FEniCS 2018.1.0'
+url:                 'http://vanessanehruji.github.io/fenics_workshop'
 baseurl:             '/fenics_workshop'
 
 # About/contact
 author:
   name:              Marin Lauber, Vanessa Nehruji
-  url:               https://twitter.com/elotroalex
+  url:               https://github.com/vanessanehruji
   email:             vanessa.nehruji@gmail.com
 
 # Color scheme. Options: red, orange, magenta, cyan, blue, brown
