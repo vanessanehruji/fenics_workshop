@@ -5,7 +5,7 @@ author: Marin Lauber, Vanessa Nehruji
 rights: Public Domain
 publication-date: 2019
 toc:
-- Title Page
+- Introduction
 - Dirichlet Boundary Conditions
 - Neumann Boundary Conditions
 - Marking Boundaries
@@ -23,14 +23,14 @@ toc:
 
 ---
 
+## INTRODUCTION
+
+The partial differential equations we look at generally have certain constraints at the boundaries of the domain. There are many different types of conditions but in this tutorial we will only focus on applying the standard Dirichlet and Neumann conditions at certain boundaries.
+
+---
+
 ## DIRICHLET BC
 
-```python
-V = FunctionSpace(mesh, 'P', 1)
-
-u = TrialFunction(V)
-v = TestFunction(V)
-```
 
 ---
 
