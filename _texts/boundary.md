@@ -36,10 +36,10 @@ The Dirichlet BC enforces a fixed value on the unknown function, $u$, on the bou
 For example, if we consider the standard Poisson equation on a unit square domain, we can force the RHS boundary, i.e. when $$x = 1$$, to take the value 2.
 
 $$
-\begin{equation}
-  -\nabla^2 u = f \qquad \text{on} \Gamma
-  u = 2 \qquad \text{when} x = 1
-\end{equation}
+\begin{align}
+  -\nabla^2 u &= f \qquad \text{on} \Gamma \\
+  u &= 2 \qquad \text{when} x = 1
+\end{align}
 $$
 
 ---
