@@ -97,6 +97,32 @@ bc = DirichletBC(V, Constant(1.0), "x[0]==1")
 
 ![dirichlet_RHS](../../assets/img/boundary/d_RHS.png)
 
+We could pass in a Python function defining the boundary instead of C code.
+> The function <a href="https://fenicsproject.org/docs/dolfin/1.6.0/python/programmers-reference/cpp/function/near.html">near(x, x0, eps)</a> checks whether x is near x0 within a tolerance of eps and returns True or False accordingly.
+
+```python
+def boundary(x, on_boundary):
+    return near(x[0], 1, eps=1e-14)
+
+bc = DirichletBC(V, Constant(1.0), boundary)
+```
+
+You can apply mutliple Dirichlet conditions by creating a list of DirichletBC and passing this to the solve function.
+
+For example, if we wanted to the RHS boundary to have a value of 1 only when $$y < 0.5$$ and a value of 2 when $$y > 0.5$$, then,
+
+```python
+bcs = [DirichletBC(V, Constant(1.0), "x[0] == 1 and x[1] < 0.5"),
+       DirichletBC(V, Constant(2.0), "x[0] == 1 and x[1] > 0.5")]
+       
+## Setup Poisson
+## ...
+
+solve(a == L, u, bcs)
+```
+
+![dirichlet_mutliple](../../assets/img/boundary/d_multiple.png)
+
 ---
 
 ## NEUMANN BC
