@@ -31,16 +31,71 @@ The partial differential equations we look at generally have certain constraints
 
 ## DIRICHLET BC
 
-The Dirichlet BC enforces a fixed value on the unknown function, $u$, on the boundary.
+The Dirichlet BC enforces a fixed value on the unknown function, $$u$$, on the boundary.
 
-For example, if we consider the standard Poisson equation on a unit square domain, we can force the RHS boundary, i.e. when $$x = 1$$, to take the value 2.
+For example, if we consider the standard Poisson equation on a unit square domain, 
 
 $$
 \begin{align}
-  -\nabla^2 u &= f \qquad \text{on} \Gamma \\
-  u &= 2 \qquad \text{when} x = 1
+  -\nabla^2 u &= f \qquad x, y \in [0, 1], \\
 \end{align}
 $$
+
+with a source term of
+$$
+\begin{equation}
+  f(x, y) = 3xy
+\end{equation}
+$$.
+
+We can force all the boundaries of the domain to take the value 1.
+
+$$
+\begin{align}
+  u &= 2 \qquad \text{on}\ \Gamma_{D},
+\end{align}
+$$
+
+In FEniCS, this is simplemented by calling the DirichletBC function with the FunctionSpace, a BC function, and the subdomain as arguments. The subdomain is a string with C code.
+> In the code below, on_boundary is a boolean value indicating whether a point is on the boundary. 
+
+```python
+mesh = UnitSquareMesh(8, 8)
+V = FunctionSpace(mesh, 'P', 1)
+bc = DirichletBC(V, Constant(1.0), "on_boundary")
+```
+
+Solving the Poisson equation with this condition gives the following result:
+
+```python
+## Input the Variational form for Poisson
+u = TrialFunction(V)
+v = TestFunction(V)
+f = Expression('3*x[0]*x[1]', degree=2)
+a = dot(grad(u), grad(v))*dx
+L = f*v*dx
+
+## Solve Poisson
+u = Function(V)
+solve(a == L, u, bc)
+
+## Plot Solution
+p = plot(u, title="Solution to Poisson")
+plot(mesh)
+p.set_cmap("viridis")
+pyplot.colorbar(p)
+pyplot.show();
+```
+
+![dirichlet_all_boundaries](../../assets/img/boundary/d_all_bounds.png)
+
+We could modify the BC such that only the RHS boundary is set to 1.
+
+```python
+bc = DirichletBC(V, Constant(1.0), "x[0]==1")
+```
+
+![dirichlet_RHS](../../assets/img/boundary/d_RHS.png)
 
 ---
 
