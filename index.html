@@ -21,7 +21,21 @@ title: "FEniCS"
     </li>
     {% endfor %}
   </ul>
-</div>
+</Div>
+
+<div class="toc">
+    <h2>Tasks</h2>
+    <ul class="texts">
+	{% for item in site.tasks %}
+	
+	<li class="text-title">
+	    <a href="{{ site.baseurl }}{{ item.url }}">
+		{{ item.title }}
+	    </a>
+	</li>
+	{% endfor %}
+    </ul>
+</Div>
 
 <!-- MATHJAX -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>

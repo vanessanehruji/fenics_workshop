@@ -28,6 +28,8 @@ encoding: utf-8
 collections:
   texts:
     output: true
+  tasks:
+    output: true
 
 # Markdown specs
 markdown: kramdown

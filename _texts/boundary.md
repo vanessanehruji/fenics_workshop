@@ -106,6 +106,9 @@ def boundary(x, on_boundary):
 
 bc = DirichletBC(V, Constant(1.0), boundary)
 ```
+---
+
+### Mutliple Dirirchlet BC
 
 You can apply multiple Dirichlet conditions by creating a list of DirichletBC and passing this to the solve function.
 
@@ -149,11 +152,31 @@ where the flux is $$g = \frac{\partial u}{\partial n}$$
 
 $$
 \begin{equation}
-  \int_{\Omega} \nabla u \cdot \nabla v \text{d}\Omega = \int_{\Omega} f v \text{d}\Omega + \int_{\Gamma_{N}} g v \text{d} \Gamma
+  \int_{\Omega} \nabla u \cdot \nabla v \text{d}\Omega = \int_{\Omega} f v \text{d}\Omega - \int_{\Gamma_{N}} g v \text{d} \Gamma
 \end{equation}
 $$
 
-In the previous examples, we have always set $$g = 0$$, (i.e. a Neumann condition of 0) so we did not include the second term on the RHS of the equation above.
+In the previous examples, we have always set $$g = 0$$, (i.e. a Neumann condition of 0) so we did not include the second term on the RHS of the equation above. To have RHS boundary with $$u = 1$$, and set a Neumann BC of $$g = 5$$ on all other boundaries, we have
+
+```python
+mesh = UnitSquareMesh(8, 8)
+V = FunctionSpace(mesh, 'P', 1)
+bc = DirichletBC(V, Constant(1.0), "x[0] == 1")
+
+## Input the Variational form for Poisson
+u = TrialFunction(V)
+v = TestFunction(V)
+f = Expression('3*x[0]*x[1]', degree=2)
+g = Constant(5.0)
+a = dot(grad(u), grad(v))*dx
+L = f*v*dx - g*v*ds	# Add the Neumann BC
+
+## Solve Poisson
+u = Function(V)
+solve(a == L, u, bc)
+```
+
+![neumann_on_all](../../assets/img/boundary/n_all.png)
 
 ---
 
@@ -163,6 +186,9 @@ In the previous examples, we have always set $$g = 0$$, (i.e. a Neumann conditio
 ---
 
 ## APPENDIX
+
+Further Reading:
++ <a href="https://fenicsproject.org/pub/tutorial/sphinx1/._ftut1005.html">FEniCS Tutorial</a>
 
 
 ---
